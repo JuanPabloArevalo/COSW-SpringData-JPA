@@ -30,8 +30,7 @@ public class PatientServicesImpl implements PatientServices{
 
     @Override
     public List<Paciente> topPatients(int n) throws ServicesException {
-//        return patiensRepository.findPatientsTop(n);
-return null;
+        return patiensRepository.findPatientsTop(n);
     }
     
 }
