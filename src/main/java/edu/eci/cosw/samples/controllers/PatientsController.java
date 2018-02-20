@@ -19,6 +19,7 @@ package edu.eci.cosw.samples.controllers;
 import edu.eci.cosw.jpa.sample.model.Paciente;
 import edu.eci.cosw.samples.services.PatientServices;
 import edu.eci.cosw.samples.services.ServicesException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +62,19 @@ public class PatientsController {
         }         
         
     }
+    
+    @RequestMapping(path = "/consultas/{n}",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Paciente> getTopPacientes(@PathVariable int n) {
+        try {
+            return services.topPatients(n);
+        } catch (ServicesException ex) {
+            Logger.getLogger(PatientsController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    
+    
     
 }
