@@ -17,6 +17,10 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface PatientsRepository extends JpaRepository<Paciente, PacienteId>{
     
+    @Override
+    @Query("select p from Paciente p where p.id = ?1")
+    public Paciente getOne(PacienteId id);
+    
     @Query("select p from Paciente p where size(p.consultas) >= ?1")
     List<Paciente> findPatientsTop(int top);
 }

@@ -63,11 +63,11 @@ public class PatientsController {
         
     }
     
-    @RequestMapping(path = "/consultas/{n}",method = RequestMethod.GET)
+    @RequestMapping(path = "/consultas",method = RequestMethod.GET)
     @ResponseBody
-    public List<Paciente> getTopPacientes(@PathVariable int n) {
+    public List<Paciente> getTopPacientes() {
         try {
-            return services.topPatients(n);
+            return services.topPatients(10);
         } catch (ServicesException ex) {
             Logger.getLogger(PatientsController.class.getName()).log(Level.SEVERE, null, ex);
             return null;
