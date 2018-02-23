@@ -33,9 +33,6 @@ public class PatientServicesImpl implements PatientServices{
         List<Paciente> hola = patiensRepository.findPatientsTop(n);
         System.err.println("Lista: "+hola);
         System.err.println("Tamaño: "+hola.size());
-        
-        
-        
         return hola;
     }
     
